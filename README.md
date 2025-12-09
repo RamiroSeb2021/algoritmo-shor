@@ -18,9 +18,10 @@ Se presenta una revisión de los conceptos básicos necesarios para comprender e
 - Congruencias enteras  
 - Propiedades de la exponenciación modular  
 - Visualización de la función  
-  \[
-  f_{a,N}(x) = a^x \bmod N
-  \]
+
+$$
+f_{a,N}(x) = a^x \bmod N
+$$
 
 El cuaderno incluye gráficos que muestran cómo se comporta la secuencia modular para distintos valores de \( a \) y \( N \), lo que prepara el terreno para comprender el período.
 
@@ -30,15 +31,15 @@ El cuaderno incluye gráficos que muestran cómo se comporta la secuencia modula
 
 Antes de la parte cuántica, se explica cómo obtener el período \( r \) de manera clásica mediante:
 
-- Métodos directos
+- Métodos directos  
 - Exponenciación modular recursiva  
-- Identificación del período mediante inspección y cálculo
+- Identificación del período mediante inspección y cálculo  
 
 El período \( r \) es fundamental porque, si \( a \) es coprimo con \( N \), se cumple:
 
-\[
-a^r \equiv 1 \mod N
-\]
+$$
+a^r \equiv 1 \pmod{N}
+$$
 
 y este valor permite recuperar los factores de \( N \).
 
@@ -48,15 +49,19 @@ y este valor permite recuperar los factores de \( N \).
 
 Una vez conocido el período \( r \), se utilizan las siguientes relaciones:
 
-\[
-\gcd(a^{r/2} - 1, N), \qquad \gcd(a^{r/2} + 1, N)
-\]
+$$
+\gcd(a^{r/2} - 1, N)
+$$
+
+$$
+\gcd(a^{r/2} + 1, N)
+$$
 
 El cuaderno implementa:
 
-- Cálculo del máximo común divisor (método de Euclides)
-- Verificación de condiciones válidas (por ejemplo, \( r \) debe ser par)
-- Ejemplos completos para números como 371 y 247
+- Cálculo del máximo común divisor (método de Euclides)  
+- Verificación de condiciones válidas (como que \( r \) sea par)  
+- Ejemplos completos para números como 371 y 247  
 
 ---
 
@@ -68,10 +73,15 @@ La segunda parte del cuaderno implementa la versión cuántica del algoritmo, ba
 
 El cuaderno desarrolla:
 
-- El circuito de estimación de fase
-- El registro de conteo de \( n \) qubits
-- El registro auxiliar para la operación modular
-- Construcción de operadores controlados que implementan \( a^k \bmod N \)
+- El circuito de estimación de fase  
+- El registro de conteo de \( n \) qubits  
+- El registro auxiliar para la operación modular  
+- Construcción de operadores controlados que implementan  
+
+$$
+a^k \bmod N
+$$
+
 - Aplicación de la Transformada de Fourier Cuántica inversa (QFT)
 
 Todo el circuito está implementado manualmente sin usar atajos predefinidos, con el fin de comprender cada componente.
@@ -82,11 +92,11 @@ Todo el circuito está implementado manualmente sin usar atajos predefinidos, co
 
 El cuaderno:
 
-- Ejecuta el circuito en el simulador Aer de Qiskit
-- Extrae la distribución de mediciones
-- Convierte las mediciones binarias en fases
-- Utiliza fracciones continuas para aproximar el período \( r \)
-- Evalúa posibles valores de \( r \)
+- Ejecuta el circuito en el simulador Aer de Qiskit  
+- Extrae la distribución de mediciones  
+- Convierte las mediciones binarias en fases  
+- Utiliza fracciones continuas para aproximar el período \( r \)  
+- Evalúa posibles valores de \( r \)  
 - Recupera factores no triviales de \( N \)
 
 Se generan tanto tablas como histogramas para facilitar la interpretación de los resultados obtenidos.
